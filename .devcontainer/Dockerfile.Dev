@@ -1,0 +1,23 @@
+# Dockerfile.dev
+
+# Use the latest official .NET SDK image (as of September 2025)
+FROM mcr.microsoft.com/dotnet/sdk:latest AS build
+
+# Install necessary build tools for .NET development
+RUN apt-get update && apt-get install -y \
+    clang \
+    gcc \
+    libc6-dev \
+    libunwind-dev \
+    zlib1g-dev \
+    git \
+    curl \
+    unzip \
+    nano \
+    sudo
+
+# Set working directory for devcontainer compatibility
+WORKDIR /workspace
+
+# Set the entrypoint to be the dotnet CLI
+ENTRYPOINT ["dotnet"]
