@@ -1,0 +1,5 @@
+/workspaces/leetcode-problems/obj/Debug/net8.0/leetcode-problems.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/leetcode-problems/obj/Debug/net8.0/leetcode-problems.AssemblyInfoInputs.cache
+/workspaces/leetcode-problems/obj/Debug/net8.0/leetcode-problems.AssemblyInfo.cs
+/workspaces/leetcode-problems/obj/Debug/net8.0/leetcode-problems.csproj.CoreCompileInputs.cache
+/workspaces/leetcode-problems/obj/Debug/net8.0/leetcode-problems.sourcelink.json

@@ -4,7 +4,7 @@
     "customizations": {
       "vscode": {
         "settings": {
-          "terminal.integrated.shell.linux": "/bin/bash"
+          "terminal.integrated.defaultProfile.linux": "bash"
         },
         "extensions": [
             "ms-dotnettools.csharp",
@@ -15,7 +15,6 @@
         ]
       }
     },
-    // "postCreateCommand": "dotnet restore ../mpesaIntegration/mpesaIntegration.csproj",
     "runArgs": ["--privileged"],
     "mounts": [
       "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
@@ -23,8 +22,10 @@
     "remoteEnv": {
       "DOCKER_HOST": "unix:///var/run/docker.sock"
     },
+      
       "features": {
         "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
-      },  
+      },
     "forwardPorts": [5108]
+      
   }
