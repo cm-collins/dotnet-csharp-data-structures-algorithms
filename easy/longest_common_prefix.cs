@@ -32,7 +32,7 @@
 
 namespace leetcode.Easy
 {
-    public class Solution
+    public class LongestCommon
     {
         public string LongestCommonPrefix(string[] strs)
         {
