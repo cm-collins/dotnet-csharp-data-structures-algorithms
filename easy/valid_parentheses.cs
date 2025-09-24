@@ -87,8 +87,6 @@ THINKING PROCESS / INTERVIEW NARRATIVE
 --------------------------------------------------------------------------------
 */
 
-using System.Collections.Generic;
-
 namespace leetcode.Easy
 {
     public class Solution
