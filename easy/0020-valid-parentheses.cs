@@ -89,9 +89,9 @@ THINKING PROCESS / INTERVIEW NARRATIVE
 
 namespace leetcode.Easy
 {
-    public class Solution
+    public class ValidParentheses
     {
-        public bool IsValid(string s)
+        public bool Solve(string s)
         {
             var match = new Dictionary<char, char>
             {
@@ -121,3 +121,4 @@ namespace leetcode.Easy
         }
     }
 }
+

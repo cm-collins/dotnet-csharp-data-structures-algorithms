@@ -21,7 +21,7 @@ DATA STRUCTURE CHOICE
 - We only need a couple of pointers:
     - p1: cursor on list1
     - p2: cursor on list2
-    - tail: the end of the merged list we’re building
+    - tail: the end of the merged list we're building
 - A dummy (sentinel) node simplifies edge cases (empty lists, first attach).
 
 Memory characteristics:
@@ -34,7 +34,7 @@ THINKING PROCESS & ALGORITHM (Two-Pointer Merge)
 --------------------------------------------------------------------------------
 Intuition:
 - Both inputs are already sorted. Like merging in merge sort:
-  compare heads, take the smaller node, advance that list’s pointer, and repeat.
+  compare heads, take the smaller node, advance that list's pointer, and repeat.
 
 Steps:
 1) Create a dummy node and set tail = dummy.
@@ -67,64 +67,53 @@ Space Complexity: O(1) auxiliary
 --------------------------------------------------------------------------------
 */
 
-
-
-namespace leetcode.Easy;
-public class ListNode
+namespace leetcode.Easy
 {
-    public int val;
-    public ListNode next;
-    public ListNode(int val = 0, ListNode  next = null)
+    public class ListNode
     {
-        this.val = val;
-        this.next = next;
-    }
-}
-
-
-public class Solution
-{
-    public ListNode MergeTwoLists(ListNode list1, ListNode list2)
-    {
-        // Pointers to traverse the two lists
-        ListNode p1 = list1;
-        ListNode p2 = list2;
-
-        // Sentinel to simplify head handling
-        ListNode dummy = new ListNode(0);
-        ListNode tail = dummy;
-
-        // Merge by always taking the smaller current node
-        while (p1 != null && p2 != null)
+        public int val;
+        public ListNode? next;
+        public ListNode(int val = 0, ListNode? next = null)
         {
-            if (p1.val <= p2.val)
-            {
-                tail.next = p1;
-                p1 = p1.next;
-            }
-            else
-            {
-                tail.next = p2;
-                p2 = p2.next;
-            }
-            tail = tail.next; // advance the merged list tail
+            this.val = val;
+            this.next = next;
         }
+    }
 
-        // Append any remaining nodes from either list
-        tail.next = (p1 != null) ? p1 : p2;
+    public class MergeTwoSortedLists
+    {
+        public ListNode? Solve(ListNode? list1, ListNode? list2)
+        {
+            // Pointers to traverse the two lists
+            ListNode? p1 = list1;
+            ListNode? p2 = list2;
 
-        // The real head is after the dummy
-        return dummy.next;
+            // Sentinel to simplify head handling
+            ListNode dummy = new ListNode(0);
+            ListNode tail = dummy;
+
+            // Merge by always taking the smaller current node
+            while (p1 != null && p2 != null)
+            {
+                if (p1.val <= p2.val)
+                {
+                    tail.next = p1;
+                    p1 = p1.next;
+                }
+                else
+                {
+                    tail.next = p2;
+                    p2 = p2.next;
+                }
+                tail = tail.next!; // advance the merged list tail (guaranteed non-null here)
+            }
+
+            // Append any remaining nodes from either list
+            tail.next = (p1 != null) ? p1 : p2;
+
+            // The real head is after the dummy
+            return dummy.next;
+        }
     }
 }
 
-/* LeetCode’s typical node definition for reference:
-public class ListNode {
-    public int val;
-    public ListNode next;
-    public ListNode(int val=0, ListNode next=null) {
-        this.val = val;
-        this.next = next;
-    }
-}
-*/

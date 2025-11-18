@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/workspaces/leetcode/leetcode-problems.csproj",
+      "projectUniqueName": "/workspaces/dotnet-csharp-data-structures-algorithms/leetcode-problems.csproj",
       "projectName": "leetcode-problems",
-      "projectPath": "/workspaces/leetcode/leetcode-problems.csproj",
+      "projectPath": "/workspaces/dotnet-csharp-data-structures-algorithms/leetcode-problems.csproj",
       "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/workspaces/leetcode/obj/",
+      "outputPath": "/workspaces/dotnet-csharp-data-structures-algorithms/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/root/.nuget/NuGet/NuGet.Config"
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.414/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -26,7 +26,7 @@ DATA STRUCTURES
     - int indices 'j', 'i': loop counters.
 - Output: string (a substring of 'first'), which is the longest common prefix.
 
-Memory characteristics: all auxiliary data is O(1). We don’t allocate
+Memory characteristics: all auxiliary data is O(1). We don't allocate
 collections, tries, or buffers; the result is derived directly from the input.
 The returned substring is the answer, not "working space".
 --------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ Note: The returned substring is output, not auxiliary memory.
 --------------------------------------------------------------------------------
 THINKING PROCESS / INTERVIEW NARRATIVE
 --------------------------------------------------------------------------------
-- Identify the structure: This is a "shared prefix" problem; it’s naturally
+- Identify the structure: This is a "shared prefix" problem; it's naturally
   tackled column-wise (vertical scan) or by shrinking a candidate prefix
   (horizontal scan). Both are O(N*L).
 - Choose clarity: Vertical scanning is simple and stops at the first mismatch,
@@ -94,10 +94,9 @@ THINKING PROCESS / INTERVIEW NARRATIVE
 
 namespace leetcode.Easy
 {
-    public class LongestCommon
+    public class LongestCommonPrefix
     {
-    
-        public string LongestCommonPrefix(string[] strs)
+        public string Solve(string[] strs)
         {
             // Edge case: null or empty array -> no prefix.
             if (strs == null || strs.Length == 0) return string.Empty;
@@ -131,3 +130,4 @@ namespace leetcode.Easy
         }
     }
 }
+
