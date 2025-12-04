@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using leetcode.Easy;
 using leetcode.Medium;
 
@@ -13,6 +15,7 @@ namespace leetcode
             // Example: Run different problems
             RunLongestCommonPrefix();
             RunValidParentheses();
+            RunBinaryInorderDfs();
             RunGenerateParentheses();
 
             Console.WriteLine("\n=== All tests completed ===");
@@ -52,6 +55,61 @@ namespace leetcode
                 Console.WriteLine($"IsValid(\"{testCase}\") => {result}");
             }
             Console.WriteLine();
+        }
+
+        static void RunBinaryInorderDfs()
+        {
+            Console.WriteLine("--- Problem 94: Binary Tree Inorder Traversal ---");
+            var solver = new BinaryInorderDfs();
+
+            // Helper function to build tree from array representation
+            TreeNode? BuildTree(int?[] arr)
+            {
+                if (arr == null || arr.Length == 0 || arr[0] == null) return null;
+
+                TreeNode root = new TreeNode(arr[0].Value);
+                var queue = new Queue<TreeNode>();
+                queue.Enqueue(root);
+                int i = 1;
+
+                while (queue.Count > 0 && i < arr.Length)
+                {
+                    TreeNode node = queue.Dequeue();
+
+                    if (i < arr.Length && arr[i].HasValue)
+                    {
+                        node.left = new TreeNode(arr[i].Value);
+                        queue.Enqueue(node.left);
+                    }
+                    i++;
+
+                    if (i < arr.Length && arr[i].HasValue)
+                    {
+                        node.right = new TreeNode(arr[i].Value);
+                        queue.Enqueue(node.right);
+                    }
+                    i++;
+                }
+
+                return root;
+            }
+
+            // Test cases from the problem description
+            int?[][] testCases = {
+                new int?[] { 1, null, 2, 3 },  // Expected: [1,3,2]
+                new int?[] { 1, 2, 3, 4, 5, null, 8, null, null, 6, 7, 9 },  // Expected: [4,2,6,5,7,1,3,9,8]
+                new int?[] { },  // Expected: []
+                new int?[] { 1 }  // Expected: [1]
+            };
+
+            foreach (var testCase in testCases)
+            {
+                TreeNode? root = BuildTree(testCase);
+                var result = solver.Solve(root);
+                string inputStr = testCase.Length == 0 ? "[]" : $"[{string.Join(",", testCase.Select(x => x?.ToString() ?? "null"))}]";
+                Console.WriteLine($"Input: {inputStr}");
+                Console.WriteLine($"Output: [{string.Join(",", result)}]\n");
+            }
         }
 
         static void RunGenerateParentheses()

@@ -9,7 +9,8 @@ A well-organized workspace for practicing data structures & algorithms in C# wit
 ├── easy/                          # Easy difficulty problems
 │   ├── 0014-longest-common-prefix.cs
 │   ├── 0020-valid-parentheses.cs
-│   └── 0021-merge-two-sorted-lists.cs
+│   ├── 0021-merge-two-sorted-lists.cs
+│   └── 0094-binary-inorder-dfs.cs
 ├── medium/                        # Medium difficulty problems
 │   ├── 0022-generate-parentheses-backtracking.cs
 │   └── 0022-generate-parentheses-dp.cs
@@ -35,6 +36,7 @@ Files follow the pattern: `{problem-number}-{problem-name}.cs`
 | 14 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | `0014-longest-common-prefix.cs` | Vertical Scanning |
 | 20 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | `0020-valid-parentheses.cs` | Stack-based |
 | 21 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | `0021-merge-two-sorted-lists.cs` | Two-Pointer Merge |
+| 94 | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) | `0094-binary-inorder-dfs.cs` | Iterative Stack-based |
 
 ### Medium
 
@@ -167,7 +169,7 @@ Test cases are included in `Program.cs` for each problem. To add more test cases
 
 ## 📊 Progress Tracking
 
-- ✅ Easy: 3 problems
+- ✅ Easy: 4 problems
 - ✅ Medium: 1 problem (2 approaches)
 - ⬜ Hard: 0 problems
 
