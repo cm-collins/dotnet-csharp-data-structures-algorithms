@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using leetcode.Easy;
 using leetcode.Medium;
+using leetcode.Hard;
 
 namespace leetcode
 {
@@ -139,17 +140,14 @@ namespace leetcode
 
         static void RunWildcardMatching()
         {
-            Console.WriteLine("--- Problem 44: Wildcard Matching ---");
-            
-            // Standard 2D DP approach
-            Console.WriteLine("2D DP Approach:");
-            var dpSolver = new WildcardMatching();
+            Console.WriteLine("--- Problem 44: Wildcard Matching (Hard) ---");
+            var solver = new WildcardMatching();
             
             // Test cases from problem description and edge cases
             (string s, string p, bool expected)[] testCases = {
-                ("aa", "a", false),           // Example 1
-                ("aa", "*", true),             // Example 2
-                ("cb", "?a", false),           // Example 3
+                ("aa", "a", false),           // Example 1: "a" does not match entire "aa"
+                ("aa", "*", true),             // Example 2: '*' matches any sequence
+                ("cb", "?a", false),           // Example 3: '?' matches 'c', but 'a' != 'b'
                 ("adceb", "*a*b", true),       // Example from header
                 ("", "*", true),                // Empty string matches '*'
                 ("", "a", false),               // Empty string doesn't match 'a'
@@ -160,31 +158,25 @@ namespace leetcode
                 ("abc", "a*bc", true),         // '*' in middle
                 ("abc", "a*", true),           // '*' at end
                 ("abc", "*c", true),           // '*' at start
-                ("abc", "a**c", true),         // Multiple consecutive '*'
+                ("abc", "a**c", true),         // Multiple consecutive '*' (equivalent to '*')
                 ("abc", "a?*c", true),         // '?' and '*' together
-                ("mississippi", "m??*ss*?i*pi", false), // Complex pattern
+                ("mississippi", "m??*ss*?i*pi", false), // Complex pattern that doesn't match
                 ("ho", "ho**", true),          // Multiple '*' at end
                 ("aaab", "b**", false),        // Pattern doesn't match start
             };
 
+            int passed = 0;
+            int total = testCases.Length;
+
             foreach (var (s, p, expected) in testCases)
             {
-                bool result = dpSolver.IsMatch(s, p);
+                bool result = solver.IsMatch(s, p);
                 string status = result == expected ? "✓" : "✗";
+                if (result == expected) passed++;
                 Console.WriteLine($"{status} IsMatch(\"{s}\", \"{p}\") => {result} (expected: {expected})");
             }
 
-            // Space-optimized approach
-            Console.WriteLine("\nSpace-Optimized DP Approach:");
-            var optimizedSolver = new WildcardMatchingOptimized();
-            
-            foreach (var (s, p, expected) in testCases)
-            {
-                bool result = optimizedSolver.IsMatch(s, p);
-                string status = result == expected ? "✓" : "✗";
-                Console.WriteLine($"{status} IsMatch(\"{s}\", \"{p}\") => {result} (expected: {expected})");
-            }
-            Console.WriteLine();
+            Console.WriteLine($"\nResults: {passed}/{total} test cases passed\n");
         }
     }
 }
